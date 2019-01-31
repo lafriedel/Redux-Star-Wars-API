@@ -5,9 +5,6 @@ import { CharacterList } from "../components";
 import { fetchChars } from '../actions';
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
 
   componentDidMount() {
     console.log("CDM in CharListView", this.props);
@@ -15,7 +12,7 @@ class CharacterListView extends React.Component {
   }
 
   render() {
-    console.log("render CharListView props ", this.props);
+    console.log("CharListView props ", this.props);
     return (
       <div>
       {this.props.isFetching && (<p>Loading...</p>)}
@@ -31,8 +28,8 @@ class CharacterListView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  characters: state.characters,
-  isFetching: state.isFetching
+  characters: state.charsReducer.characters,
+  isFetching: state.charsReducer.isFetching
 })
 
 export default connect(mapStateToProps,
